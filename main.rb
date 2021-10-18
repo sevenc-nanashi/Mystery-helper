@@ -14,7 +14,7 @@ client.on :reaction_add do |reaction|
   next if reaction.emoji != Discorb::UnicodeEmoji["pushpin"]
 
   message = reaction.fetch_message.wait
-  next if message.reactions.find { |r| r.emoji == Discorb::UnicodeEmoji["pushpin"] }.count > 1
+  next if message.pinned?
 
   message.pin
 end
@@ -23,7 +23,6 @@ client.on :reaction_remove do |reaction|
   next if reaction.emoji != Discorb::UnicodeEmoji["pushpin"]
 
   message = reaction.fetch_message(force: true).wait
-  next unless message.reactions.find { |r| r.emoji == Discorb::UnicodeEmoji["pushpin"] }.nil?
 
   message.unpin
 end
