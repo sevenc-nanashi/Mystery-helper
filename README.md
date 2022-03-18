@@ -1,4 +1,4 @@
-# pinner
+# Mystery helper
 
 メッセージを:pushpin:でピン留めします。
 また、メッセージのURLを展開します。
